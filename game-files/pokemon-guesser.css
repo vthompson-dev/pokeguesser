@@ -1,0 +1,47 @@
+#imgStat {
+    margin: 20px;
+}
+
+#pokeImage {
+    border: 1px solid black;
+    margin: 10px;
+}
+
+#statBlock {
+    border: 1px solid black;
+}
+
+#guesser {
+    font-size: 20px;
+}
+
+button {
+    border-color: darkred;
+    margin-left: 20px;
+}
+
+#reset {
+    font-size: 20px;
+}
+
+.buttonHover {
+    border-color: crimson;
+    background-color: slategrey;
+    color: antiquewhite;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.padded {
+    padding: 20px;
+}
+
+.falseText {
+    color: red;
+}
+
+.trueText {
+    color: green;
+}

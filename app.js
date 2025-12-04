@@ -9,14 +9,15 @@ const def = document.querySelector('#defenseStat');
 const spa = document.querySelector('#spattackStat');
 const sdf = document.querySelector('#spdefenseStat');
 const spd = document.querySelector('#speedStat');
-const hint1 = document.querySelector('#hint1')
-const hint2 = document.querySelector('#hint2')
-const pokeType = document.querySelector('#pokeType')
-const firstLetter = document.querySelector('#firstLetter')
-const pokeName = document.querySelector('#pokeName')
-const imgP = document.querySelector('#imgP')
-const nameDiv = document.querySelector('#nameDiv')
-const winLose = document.querySelector('#winLose')
+const hint1 = document.querySelector('#hint1');
+const hint2 = document.querySelector('#hint2');
+const pokeType = document.querySelector('#pokeType');
+const firstLetter = document.querySelector('#firstLetter');
+const pokeName = document.querySelector('#pokeName');
+const imgP = document.querySelector('#imgP');
+const nameDiv = document.querySelector('#nameDiv');
+const winLose = document.querySelector('#winLose');
+const giveUp = document.querySelector('#giveUp');
 let type1;
 let type2;
 let nameValue;
@@ -35,7 +36,7 @@ fetch(getOnePokePath)
         console.log("Success", res)
         return res.json()
     })
-    .then(data => { // Try assigning the types/name letters to variables and move the hint functions out
+    .then(data => {
         console.log(data);
         correctName.innerText = data.name;
         const pokeSprite = img.setAttribute("src", data.sprites.front_default);
@@ -79,4 +80,12 @@ guessButton.addEventListener('click', function (x) {
         winLose.classList.add('falseText')
     }
     x.preventDefault();
+})
+
+giveUp.addEventListener('click', function (y) {
+    imgP.classList.toggle('hide');
+    nameDiv.classList.toggle('hide');
+    winLose.innerText = 'Better luck next round!';
+    winLose.classList.add('giveUpText');
+    y.preventDefault();
 })

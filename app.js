@@ -11,8 +11,12 @@ const sdf = document.querySelector('#spdefenseStat');
 const spd = document.querySelector('#speedStat');
 const hint1 = document.querySelector('#hint1');
 const hint2 = document.querySelector('#hint2');
+const hint3 = document.querySelector('#hint3');
+const hint4 = document.querySelector('#hint4');
 const pokeType = document.querySelector('#pokeType');
 const firstLetter = document.querySelector('#firstLetter');
+const ability = document.querySelector('#ability');
+const locale = document.querySelector('#locale');
 const pokeName = document.querySelector('#pokeName');
 const imgP = document.querySelector('#imgP');
 const nameDiv = document.querySelector('#nameDiv');
@@ -20,8 +24,10 @@ const winLose = document.querySelector('#winLose');
 const giveUp = document.querySelector('#giveUp');
 let type1;
 let type2;
-let nameValue;
+let nameValue = null;
 let typeValues;
+let abilities;
+let locationArea;
 
 reset.addEventListener('click', function () {
     location.reload();
@@ -30,6 +36,8 @@ reset.addEventListener('click', function () {
 let generatePokeNumber = Math.floor((Math.random() * 1015) + 1);
 
 const getOnePokePath = `https://pokeapi.co/api/v2/pokemon/${generatePokeNumber}/`
+
+const getLocationArea = `https://pokeapi.co/api/v2/pokemon/${generatePokeNumber}/encounters`
 
 fetch(getOnePokePath)
     .then(res => {
@@ -50,7 +58,21 @@ fetch(getOnePokePath)
         type1 = data.types[0].type.name;
         type2 = data.types[1].type.name;
         nameValue = data.species.name.split("")[0];
+        abilities = data.abilities[0].ability.name;
         console.log(nameValue);
+    })
+    .catch(e => {
+        console.log("Error", e)
+    })
+
+fetch(getLocationArea)
+    .then(res => {
+        console.log("Success", res)
+        return res.json()
+    })
+    .then(data => {
+        console.log(data);
+        locationArea = data[0].location_area.name;
     })
     .catch(e => {
         console.log("Error", e)
@@ -65,8 +87,20 @@ hint1.addEventListener('click', function (v) {
     v.preventDefault();
 })
 hint2.addEventListener('click', function (w) {
-    firstLetter.innerText = nameValue.toUpperCase();
+    if (nameValue === null) {
+        firstLetter.innerText = "API Error, reset the game."
+    } else {
+        firstLetter.innerText = nameValue.toUpperCase();
+    }
     w.preventDefault();
+})
+hint3.addEventListener('click', function (u) {
+    ability.innerText = `${abilities}`;
+    u.preventDefault();
+})
+hint4.addEventListener('click', function (t) {
+    locale.innerText = `${locationArea}`;
+    t.preventDefault();
 })
 
 guessButton.addEventListener('click', function (x) {

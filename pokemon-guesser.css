@@ -1,14 +1,31 @@
+body {
+    background: #d12839;
+    background: linear-gradient(180deg, rgba(209, 40, 57, 1) 0%, rgba(171, 176, 174, 0.94) 40%, rgba(255, 255, 255, 1) 60%);
+}
+
 #imgStat {
     margin: 20px;
+    display: flex;
+    align-items: stretch;
+    /* equal height */
+    gap: 20px;
 }
 
 #pokeImage {
     border: 1px solid black;
+    flex: 1;
+    box-sizing: border-box;
     margin: 10px;
+    padding: 15px;
+    background-color: white;
 }
 
 #statBlock {
     border: 1px solid black;
+    flex: 1;
+    box-sizing: border-box;
+    padding: 15px;
+    background-color: white;
 }
 
 #guesser {
@@ -48,4 +65,46 @@ button:hover {
 
 .giveUpText {
     color: blue;
+}
+
+.hpStat {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 3px;
+    background-color: lightgreen;
+}
+
+.attackStat {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 3px;
+    background-color: palegoldenrod;
+}
+
+.defenseStat {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 3px;
+    background-color: orange;
+}
+
+.spAttackStat {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 3px;
+    background-color: skyblue;
+}
+
+.spDefenseStat {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 3px;
+    background-color: rgb(146, 34, 225);
+}
+
+.speedStat {
+    border: 1px solid grey;
+    border-radius: 15px;
+    padding: 3px;
+    background-color: palevioletred;
 }

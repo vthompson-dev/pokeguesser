@@ -23,12 +23,15 @@
                 </div>
             </div>
             <div id="statBlock" class="col">
-                <p><strong>HP:</strong> <span id="hpStat"></span></p>
-                <p><strong>Attack:</strong> <span id="attackStat"></span></p>
-                <p><strong>Defense:</strong> <span id="defenseStat"></span></p>
-                <p><strong>Special Attack:</strong> <span id="spattackStat"></span></p>
-                <p><strong>Special Defense:</strong> <span id="spdefenseStat"></span></p>
-                <p><strong>Speed:</strong> <span id="speedStat"></span></p>
+                <p class="d-flex justify-text-center"><strong><span class="hpStat">HP:</span></strong> <span
+                        id="hpStat"></span></p>
+                <p><strong><span class="attackStat">Attack:</span></strong> <span id="attackStat"></span></p>
+                <p><strong><span class="defenseStat">Defense:</span></strong> <span id="defenseStat"></span></p>
+                <p><strong><span class="spAttackStat">Special Attack:</span></strong> <span id="spattackStat"></span>
+                </p>
+                <p><strong><span class="spDefenseStat">Special Defense:</span></strong> <span id="spdefenseStat"></span>
+                </p>
+                <p><strong><span class="speedStat">Speed:</span></strong> <span id="speedStat"></span></p>
             </div>
         </div>
 
@@ -42,6 +45,12 @@
         <div id="startsWith">
             <p><strong>Starts with: </strong> <span id="firstLetter"></span></p>
         </div>
+        <div id="abilities">
+            <p><strong>Possible ability: </strong> <span id="ability"></span></p>
+        </div>
+        <div id="locationData">
+            <p><strong>First appears in: </strong> <span id="locale"></span></p>
+        </div>
     </div>
     <div id="guesser" class="d-flex justify-content-center">
         <form id="guesserForm" action="#">
@@ -51,6 +60,8 @@
                 <button id="guessButton" class="guessButton button">Guess!</button>
                 <button id="hint1" class="button">Hint 1</button>
                 <button id="hint2" class="button">Hint 2</button>
+                <button id="hint3" class="button">Hint 3</button>
+                <button id="hint4" class="button">Hint 4</button>
                 <button id="giveUp" class="button">I Give Up!</button>
             </div>
 

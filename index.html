@@ -23,15 +23,21 @@
                 </div>
             </div>
             <div id="statBlock" class="col">
-                <p class="d-flex justify-text-center"><strong><span class="hpStat">HP:</span></strong> <span
+                <p class="d-flex justify-text-center statText"><strong><span class="hpStat">HP:</span></strong> <span
                         id="hpStat"></span></p>
-                <p><strong><span class="attackStat">Attack:</span></strong> <span id="attackStat"></span></p>
-                <p><strong><span class="defenseStat">Defense:</span></strong> <span id="defenseStat"></span></p>
-                <p><strong><span class="spAttackStat">Special Attack:</span></strong> <span id="spattackStat"></span>
+                <p class="statText"><strong><span class="attackStat">Attack:</span></strong> <span
+                        id="attackStat"></span></p>
+                <p class="statText"><strong><span class="defenseStat">Defense:</span></strong> <span
+                        id="defenseStat"></span>
                 </p>
-                <p><strong><span class="spDefenseStat">Special Defense:</span></strong> <span id="spdefenseStat"></span>
+                <p class="statText"><strong><span class="spAttackStat">Special Attack:</span></strong> <span
+                        id="spattackStat"></span>
                 </p>
-                <p><strong><span class="speedStat">Speed:</span></strong> <span id="speedStat"></span></p>
+                <p class="statText"><strong><span class="spDefenseStat">Special Defense:</span></strong> <span
+                        id="spdefenseStat"></span>
+                </p>
+                <p class="statText"><strong><span class="speedStat">Speed:</span></strong> <span id="speedStat"></span>
+                </p>
             </div>
         </div>
 
@@ -51,25 +57,32 @@
         <div id="locationData">
             <p><strong>Can be found in: </strong> <span id="locale"></span></p>
         </div>
+        <div id="dexNumber">
+            <p><strong>Dex number: </strong> <span id="pokeNo"></span></p>
+        </div>
     </div>
     <div id="guesser" class="d-flex justify-content-center">
         <form id="guesserForm" action="#">
             <label for="pokeName"><strong>Enter the Pokemon's name:</strong> </label>
             <input type="text" id="pokeName" class="text-center" name="pokeName" placeholder="All lower case">
-            <div class="padded">
-                <button id="guessButton" class="guessButton button">Guess!</button>
-                <button id="hint1" class="button">Hint 1</button>
-                <button id="hint2" class="button">Hint 2</button>
-                <button id="hint3" class="button">Hint 3</button>
-                <button id="hint4" class="button">Hint 4</button>
-                <button id="giveUp" class="button">I Give Up!</button>
+            <div class="padded row">
+                <div class="col d-flex flex-column">
+                    <button id="hint1" class="button mb-1">Hint 1</button>
+                    <button id="hint2" class="button mb-1">Hint 2</button>
+                    <button id="hint3" class="button mb-1">Hint 3</button>
+                    <button id="hint4" class="button mb-1">Hint 4</button>
+                    <button id="hint5" class="button mb-1">Hint 5</button>
+                </div>
+                <div class="col">&nbsp;</div>
+                <div class="col d-flex flex-column">
+                    <button id="guessButton" class="guessButton button mb-auto">Guess!</button>
+                    <button id="giveUp" class="button mb-auto">I Give Up!</button>
+                    <button id="reset" class="button mb-auto">Reset</button>
+                </div>
             </div>
 
         </form>
 
-    </div>
-    <div>
-        <button id="reset" class="guessButton button d-flex align-items-end">Reset</button>
     </div>
 
     <script src="app.js"></script>

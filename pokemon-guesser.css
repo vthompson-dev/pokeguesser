@@ -109,3 +109,9 @@ button:hover {
     padding: 3px;
     background-color: palevioletred;
 }
+
+@media screen and (max-width: 480px) {
+    .statText {
+        font-size: 10px;
+    }
+}

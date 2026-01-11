@@ -32,6 +32,10 @@ let typeValues;
 let abilities;
 let locationArea;
 
+document.getElementById("guesserForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+});
+
 reset.addEventListener('click', function () {
     location.reload();
 })

@@ -32,6 +32,10 @@ let typeValues;
 let abilities;
 let locationArea;
 
+document.getElementById("guesserForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+});
+
 reset.addEventListener('click', function () {
     location.reload();
 })
@@ -44,11 +48,11 @@ const getLocationArea = `https://pokeapi.co/api/v2/pokemon/${generatePokeNumber}
 
 fetch(getOnePokePath)
     .then(res => {
-        console.log("Success", res)
+        // console.log("Success", res)
         return res.json()
     })
     .then(data => {
-        console.log(data);
+        // console.log(data);
         correctName.innerText = data.name;
         const pokeSprite = img.setAttribute("src", data.sprites.front_default);
         hp.innerText = data.stats[0]?.base_stat ?? "N/A";
@@ -63,7 +67,7 @@ fetch(getOnePokePath)
         nameValue = data.species.name.split("")[0] ?? null;
         abilities = data.abilities?.[0]?.ability?.name ?? null;
         id = data.id ?? null;
-        console.log(nameValue);
+        // console.log(nameValue);
     })
     .catch(e => {
         console.log("Error", e)
@@ -71,11 +75,11 @@ fetch(getOnePokePath)
 
 fetch(getLocationArea)
     .then(res => {
-        console.log("Success", res)
+        // console.log("Success", res)
         return res.json()
     })
     .then(data => {
-        console.log(data);
+        // console.log(data);
         locationArea = data?.[0]?.location_area?.name ?? null;
     })
     .catch(e => {
@@ -135,6 +139,12 @@ guessButton.addEventListener('click', function (x) {
     }
     x.preventDefault();
 })
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        document.getElementById('guessButton').click();
+    }
+});
 
 giveUp.addEventListener('click', function (y) {
     imgP.classList.toggle('hide');

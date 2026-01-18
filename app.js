@@ -2,7 +2,8 @@ const guessButton = document.querySelector("#guessButton");
 const reset = document.querySelector('#reset')
 const correctName = document.querySelector('#correctName');
 const pokeImage = document.querySelector('#pokeImage');
-const img = document.querySelector('#spriteImage');
+const imgFront = document.querySelector('#spriteImageFront');
+const imgShiny = document.querySelector('#spriteImageShiny');
 const hp = document.querySelector('#hpStat');
 const atk = document.querySelector('#attackStat');
 const def = document.querySelector('#defenseStat');
@@ -54,7 +55,8 @@ fetch(getOnePokePath)
     .then(data => {
         // console.log(data);
         correctName.innerText = data.name;
-        const pokeSprite = img.setAttribute("src", data.sprites.front_default);
+        const pokeSpriteFront = imgFront.setAttribute("src", data.sprites.front_default);
+        const pokeSpriteShiny = imgShiny.setAttribute("src", data.sprites.front_shiny);
         hp.innerText = data.stats[0]?.base_stat ?? "N/A";
         atk.innerText = data.stats[1]?.base_stat ?? "N/A";
         def.innerText = data.stats[2]?.base_stat ?? "N/A";

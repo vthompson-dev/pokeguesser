@@ -10,79 +10,124 @@
     <title>Pokemon Guesser</title>
 </head>
 
-<body>
-    <h1>Who's That Pokemon?</h1>
-    <p>Use the clues and guess which Pokemon you have received!</p>
+<body class="d-flex flex-column vh-100">
+    <h1 class="text-center">Who's That Pokemon?</h1>
+    <p class="text-center">Use the clues and guess which Pokemon you have received!</p>
 
-    <div id="clues">
-        <div id="imgStat" class="row">
-            <div id="pokeImage" class="col d-flex align-items-center">
-                <p id="imgP" class="hide"><img src="" alt="" id="spriteImage"></p>
-                <div id="nameDiv" class="hide">
-                    <p>The Pokemon is <span id="correctName"></span></p>
+    <div class="container px-4 flex-grow-1" id="clues">
+        <div id="imgStat" class="row align-items-stretch gx-5 my-4">
+            <div id="pokeImage" class="col d-flex">
+                <div
+                    class="spaceBorder w-100 d-flex flex-column align-items-center justify-content-center p-3 container">
+                    <div class="row">
+                        <div class="col">
+                            <p id="imgP" class="hide"><img src="" alt="" id="spriteImageFront">&nbsp;&nbsp;&nbsp;<img
+                                    src="" alt="" id="spriteImageShiny"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div id="nameDiv" class="hide">
+                                <p>The Pokemon is <span id="correctName"></span></p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div id="statBlock" class="col">
-                <p class="d-flex justify-text-center statText"><strong><span class="hpStat">HP:</span></strong> <span
-                        id="hpStat"></span></p>
-                <p class="statText"><strong><span class="attackStat">Attack:</span></strong> <span
-                        id="attackStat"></span></p>
-                <p class="statText"><strong><span class="defenseStat">Defense:</span></strong> <span
-                        id="defenseStat"></span>
-                </p>
-                <p class="statText"><strong><span class="spAttackStat">Special Attack:</span></strong> <span
-                        id="spattackStat"></span>
-                </p>
-                <p class="statText"><strong><span class="spDefenseStat">Special Defense:</span></strong> <span
-                        id="spdefenseStat"></span>
-                </p>
-                <p class="statText"><strong><span class="speedStat">Speed:</span></strong> <span id="speedStat"></span>
-                </p>
+            <div id="statBlock" class="col d-flex">
+                <div class="spaceBorder w-100 p-3">
+                    <p class="statText"><strong><span class="stat hpStat">HP:</span></strong>
+                        <span id="hpStat"></span>
+                    </p>
+                    <p class="statText"><strong><span class="stat attackStat">Attack:</span></strong> <span
+                            id="attackStat"></span></p>
+                    <p class="statText"><strong><span class="stat defenseStat">Defense:</span></strong> <span
+                            id="defenseStat"></span>
+                    </p>
+                    <p class="statText"><strong><span class="stat spAttackStat">Special Attack:</span></strong> <span
+                            id="spattackStat"></span>
+                    </p>
+                    <p class="statText"><strong><span class="stat spDefenseStat">Special Defense:</span></strong> <span
+                            id="spdefenseStat"></span>
+                    </p>
+                    <p class="statText"><strong><span class="stat speedStat">Speed:</span></strong> <span
+                            id="speedStat"></span>
+                    </p>
+                </div>
+            </div>
+            <div class="col d-flex">
+                <div class="spaceBorder w-100 p-3 d-flex flex-column justify-content-center align-items-start">
+                    <div class="row">
+                        <div class="col" id="type">
+                            <p><strong>Type: </strong><span id="pokeType"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" id="startsWith">
+                            <p><strong>Starts with: </strong> <span id="firstLetter"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" id="abilities">
+                            <p><strong>Possible ability: </strong> <span id="ability"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" id="locationData">
+                            <p><strong>Can be found in: </strong> <span id="locale"></span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" id="dexNumber">
+                            <p><strong>Dex number: </strong> <span id="pokeNo"></span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div>
-            <p><span id="winLose"></span></p>
+            <p class="px-4"><span id="winLose"></span></p>
         </div>
 
-        <div id="type">
-            <p><strong>Type: </strong><span id="pokeType"></span></p>
-        </div>
-        <div id="startsWith">
-            <p><strong>Starts with: </strong> <span id="firstLetter"></span></p>
-        </div>
-        <div id="abilities">
-            <p><strong>Possible ability: </strong> <span id="ability"></span></p>
-        </div>
-        <div id="locationData">
-            <p><strong>Can be found in: </strong> <span id="locale"></span></p>
-        </div>
-        <div id="dexNumber">
-            <p><strong>Dex number: </strong> <span id="pokeNo"></span></p>
-        </div>
-    </div>
-    <div id="guesser" class="d-flex justify-content-center">
-        <form id="guesserForm" action="#">
-            <label for="pokeName"><strong>Enter the Pokemon's name:</strong> </label>
-            <input type="text" id="pokeName" class="text-center" name="pokeName" placeholder="All lower case">
-            <div class="padded row">
-                <div class="col d-flex flex-column">
-                    <button id="hint1" class="button mb-1">Hint 1</button>
-                    <button id="hint2" class="button mb-1">Hint 2</button>
-                    <button id="hint3" class="button mb-1">Hint 3</button>
-                    <button id="hint4" class="button mb-1">Hint 4</button>
-                    <button id="hint5" class="button mb-1">Hint 5</button>
-                </div>
-                <div class="col">&nbsp;</div>
-                <div class="col d-flex flex-column">
-                    <button id="guessButton" class="guessButton button mb-auto">Guess!</button>
-                    <button id="giveUp" class="button mb-auto">I Give Up!</button>
-                    <button id="reset" class="button mb-auto">Reset</button>
-                </div>
+
+        <div class="padded row">
+
+
+            <div id="guesser" class=" col d-flex justify-content-center">
+                <form id="guesserForm" action="#">
+                    <label for="pokeName"><strong>Enter the Pokemon's name:</strong> </label>
+                    <input type="text" id="pokeName" class="text-center" name="pokeName" placeholder="All lower case">
+                    <div class="padded row">
+                        <div class="col d-flex flex-column">
+                            <button id="hint1" class="button mb-1">Hint 1</button>
+                            <button id="hint2" class="button mb-1">Hint 2</button>
+                            <button id="hint3" class="button mb-1">Hint 3</button>
+                            <button id="hint4" class="button mb-1">Hint 4</button>
+                            <button id="hint5" class="button mb-1">Hint 5</button>
+                        </div>
+                        <div class="col">&nbsp;</div>
+                        <div class="col d-flex flex-column">
+                            <button id="guessButton" class="guessButton button mb-auto">Guess!</button>
+                            <button id="giveUp" class="button mb-auto">I Give Up!</button>
+                            <button id="reset" class="button mb-auto">Reset</button>
+                        </div>
+                    </div>
+
+                </form>
+
             </div>
+        </div>
 
-        </form>
-
+    </div>
+    <div class="footer bg-dark">
+        <div class="container mt-auto">
+            <span class="text-dark-emphasis">Made using the <a class="text-info-emphasis" href="https://pokeapi.co/">v2
+                    PokéAPI</a>. Not all
+                Pokémon data is available at this
+                time.</span>
+        </div>
     </div>
 
     <script src="app.js"></script>
